@@ -2,7 +2,7 @@
 /// <reference types="vite-plugin-svgr/client" />
 
 interface ImportMetaEnv {
-  readonly DEMO_API: string;
+  readonly TMA_API: string;
 }
 
 interface ImportMeta {

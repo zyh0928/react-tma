@@ -1,7 +1,10 @@
-import { initInitData } from "@telegram-apps/sdk";
+import { initInitData, initMiniApp } from "@telegram-apps/sdk";
+
+import { colors } from "@/styles";
 
 const App: FC = () => {
-  const { chatType, user } = initInitData() ?? {};
+  const [miniApp] = initMiniApp() ?? [];
+  const { startParam, user } = initInitData() ?? {};
 
   const { i18n } = useTranslation();
   const navigate = useNavigate();
@@ -9,9 +12,9 @@ const App: FC = () => {
   useEffectOnce(() => {
     i18n.changeLanguage(user?.languageCode?.substring(0, 2));
 
-    const isGroup = chatType?.includes("group");
+    miniApp?.setHeaderColor(colors.primary);
 
-    navigate(`/${isGroup ? "group" : "person"}`, { replace: !0 });
+    navigate(`/${!startParam ? "person" : "group"}`, { replace: !0 });
   });
 
   return <Outlet />;

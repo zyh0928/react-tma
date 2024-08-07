@@ -1,4 +1,6 @@
-export const colors = {
+import type { MiniAppHeaderColor } from "@telegram-apps/sdk";
+
+export const colors: StrMap<MiniAppHeaderColor> = {
   background: "#f2f2f2",
   // 紅
   error: "#cb1b45",
