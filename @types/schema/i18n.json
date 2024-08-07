@@ -1,0 +1,43 @@
+{
+  "$ref": "#/definitions/I18nSchema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "I18nSchema": {
+      "additionalProperties": false,
+      "properties": {
+        "common": {
+          "additionalProperties": false,
+          "properties": {
+            "error": {
+              "additionalProperties": false,
+              "properties": {
+                "404": {
+                  "type": "string"
+                },
+                "500": {
+                  "type": "string"
+                }
+              },
+              "required": ["404", "500"],
+              "type": "object"
+            }
+          },
+          "required": ["error"],
+          "type": "object"
+        },
+        "validations": {
+          "additionalProperties": false,
+          "properties": {
+            "required": {
+              "type": "string"
+            }
+          },
+          "required": ["required"],
+          "type": "object"
+        }
+      },
+      "required": ["common", "validations"],
+      "type": "object"
+    }
+  }
+}
